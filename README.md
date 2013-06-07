@@ -356,6 +356,19 @@ Translations of the guide are available in the following languages:
     end
     ```
 
+* When using option hashs that have 2 or more keys for method arguments always have them
+  before the method call and aligned on the longest key
+
+   ```Ruby
+   options = {
+     option1:    'foo',
+     abitlonger: 'bar',
+     shorter:    2
+   }
+   method_call(options)
+   ```
+
+
 * Add underscores to large numeric literals to improve their readability.
 
     ```Ruby
