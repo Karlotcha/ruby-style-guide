@@ -236,7 +236,7 @@ Translations of the guide are available in the following languages:
     [1, 2, 3].length
     ```
 
-* Indent `when` one level deeper than `case`.
+* Indent `when` one level deeper than `case`. You are doing this in HAML anyway.
 
     ```Ruby
     case
