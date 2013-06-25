@@ -1296,24 +1296,19 @@ at all.
 * Try to make your classes as
   [SOLID](http://en.wikipedia.org/wiki/SOLID_(object-oriented_design\))
   as possible.
-* Always supply a proper `to_s` method for classes that represent
-  domain objects.
+* Supply a `to_s` (`inspect` if using Rails) method for classes with big initializers. For example:
 
-    ```Ruby
-    class Person
-      attr_reader :first_name, :last_name
+```ruby
+class ObjectWrapper
+  def initialize(count)
+    @count = count
+    @objects= @count.times{ |i| Obj.new(i) }
+  end
 
-      def initialize(first_name, last_name)
-        @first_name = first_name
-        @last_name = last_name
-      end
-
-      def to_s
-        "#{@first_name} #{@last_name}"
-      end
-    end
-    ```
-
+  def `inspect`
+    "objects count: #{@objects.size}"
+  end
+end
 * Use the `attr` family of functions to define trivial accessors or
 mutators.
 
