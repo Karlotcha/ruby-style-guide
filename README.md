@@ -778,29 +778,6 @@ modules). Never use `::` for method invocation.
     end
     ```
 
-* Don't use the return value of `=` (an assignment) in conditional expressions.
-
-    ```Ruby
-    # bad (+ a warning)
-    if (v = array.grep(/foo/))
-      do_something(v)
-      ...
-    end
-
-    # bad (+ a warning)
-    if v = array.grep(/foo/)
-      do_something(v)
-      ...
-    end
-
-    # good
-    v = array.grep(/foo/)
-    if v
-      do_something(v)
-      ...
-    end
-    ```
-
 * Use `||=` freely to initialize variables.
 
     ```Ruby
@@ -1797,7 +1774,7 @@ this rule only to arrays with two or more elements.
 
    ```Ruby
    batman = {name: 'Bruce Wayne'}
-   
+
    # bad - if we use the default value, we eager evaluate it
    # so it can slow the program down if done multiple times
    batman.fetch(:powers, get_batman_powers) # get_batman_powers is expensive
